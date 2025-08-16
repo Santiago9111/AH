@@ -12,35 +12,39 @@ model.addProduct({
         stock: 25
 });
 
+model.addProduct({
+    name: 'Mouse',
+    description: 'Mouse Gamer',
+    price: 15000,
+    stock: 40
+});
 
-async function leer (){
-    const data = await fs.readFile(path);
-    console.log(data.toString() );
-}
+console.log("Todos los productos:", model.getProducts());
+
+const primerProducto = model.getProducts()[0];
+console.log("Buscar por ID:", model.getProductById(primerProducto.id));
+console.log("Buscar un ID inexistente:", model.getProductById("fake-id"));
 
 
+const alumno1 = new Alumno("Carlos", "Luiz", 19, "DW");
+alumno1.modificarEdad(35);
+alumno1.agregarMateria("Programación I");
+alumno1.agregarMateria("Bases de Datos");
+alumno1.agregarMateria("Redes");
+
+console.log("Alumno:", alumno1.obtenerDatos());
+console.log("Carrera:", alumno1.obtenerCarrera());
+console.log("Edad:", alumno1.retornarEdad());
+alumno1.mostrarMaterias();
 
 const leerArchivo = async () => {
     const data = await fs.readFile(path);
-    console.log(data.toString() );
-}
+    console.log("Archivo leído:", data.toString());
+};
 
 const guardar = async (texto) => {
    await fs.writeFile(path, texto);
-}
-
-/*const fn = async () {
-    await leerArchivo();
-    await guardar("Escribiendo desde node");
-}
-*/
+};
 
 leerArchivo();
 guardar("Escribiendo desde node");
-
-let nombre = "Jonathan";
-
-const alumno1 = new Alumno ("Carlos", "Luiz", 19, "DW");
-alumno1.modificarEdad(35);
-
-console.log( alumno1.edad);

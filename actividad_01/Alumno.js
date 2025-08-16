@@ -1,10 +1,11 @@
 class Alumno {
     nombre = "";
     apellido = "";
-    edad = "";
+    edad = 0;
     carrera = "";
     materias = [];
-    constructor(nombre, apellido, edad, carrera, materias=[]){
+
+    constructor(nombre, apellido, edad, carrera, materias = []) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -13,27 +14,28 @@ class Alumno {
 
     }
 
-    obtenerCarrera(){
+    obtenerCarrera() {
         return this.carrera;
     }
 
-    obtenerDatos(){
+    obtenerDatos() {
         return `${this.nombre} ${this.apellido}`;
     }
-    modificarEdad(edad){
+    modificarEdad(edad) {
         this.edad = edad;
     }
 
-    agregarMateria(materias){
-        this.materias = materias;
+    agregarMateria(materia) {
+        this.materias.push(materia);
     }
     
-    mostrarMaterias(){
-
+    mostrarMaterias() {
+        console.table(this.materias);
     }
-    retornarEdad(){
-
+    retornarEdad() {
+        return this.edad;
     }
 }
+
 let algo= "texto";
 module.exports = Alumno;
