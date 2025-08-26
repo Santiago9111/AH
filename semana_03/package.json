@@ -3,14 +3,16 @@
   "version": "1.0.0",
   "description": "Api Rest",
   "main": "server.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Santiago Medina",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^5.6.0"
+    "chalk": "^4.1.2",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
   }
 }
