@@ -35,18 +35,6 @@ app.get('/api/productos/:id', async (request, response) => {
     response.json({id});
 })
 
-app.get('/productos/:id', async (request, response) => {
-    const id = request.params.id;
-    console.log(id);
-    response.json({id});
-})
-
-app.get('/productos/:id', async (request, response) => {
-    const id = request.params.id;
-    console.log(id);
-    response.json({id});
-})
-
 console.log( chalk.green ('Hola!'));
 
 app.listen(port, () => { 

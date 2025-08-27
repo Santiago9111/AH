@@ -40,11 +40,29 @@ class Product{
         const product = this.products.find( item => item.id == id );
         return product ? product : {};
     }
-    deleteProductById(id){
+    async deleteProductyId(id){
+       this.products = await this.readJSON();
+        const index = this.products.findIndex(item => item.id === id);
 
+        if (index !== -1) {
+            this.products.splice(index, 1);
+            await this.saveJSON();
+        } else {
+            console.error("Not found");
+        }
     }
-    updateProductById(id, product){
-        
+    async updateProductId(id, product){
+        this.products = await this.readJSON();
+        const index = this.products.findIndex(item => item.id === id);
+
+        if (index !== -1) {
+            this.products[index] = { ...this.products[index], ...newProductData, id }; // conservamos el id
+            await this.saveJSON();
+            return this.products[index];
+        } else {
+            console.error("Not found");
+            return {};
+        }
     }
 }
 
